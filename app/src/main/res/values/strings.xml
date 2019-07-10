@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name_dev">androidX dev</string>
+    <string name="app_name_product">androidX product</string>
+    <!--tabMenu-->
+    <string name="tab_menu_1">微信</string>
+    <string name="tab_menu_2">通讯录</string>
+    <string name="tab_menu_3">发现</string>
+    <string name="tab_menu_4">我的</string>
+    <string name="tab_menu_5">我要 上传</string>
+
+
+    <!--权限-->
+    <string name="rationale_camera">此应用程序需要访问相册，这样你可以选择图片</string>
+    <string name="rationale_location">此应用程序需要访问位置，这样你可以定位功能</string>
+    <string name="title_settings">无权限访问</string>
+    <string name="rationale_ask_again">
+       无法访问权限，此应用程序可能无法正常工作。打开应用程序设置屏幕来修改应用程序权限。
+    </string>
+</resources>

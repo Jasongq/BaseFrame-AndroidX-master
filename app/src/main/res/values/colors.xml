@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorWindowBackground">#F5F5F5</color>
+    <color name="colorStatuBar">#1D82D2</color>
+    <!---->
+    <color name="transparent">#00000000</color>
+    <color name="rippleColor">#999999</color>
+    <color name="colorBlue">#1D82D2</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <!---->
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+</resources>

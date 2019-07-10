@@ -1,0 +1,120 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        flavorDimensions "versionCode"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+        ndk { //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi-v7a'
+            /*'armeabi', , 'armeabi-v8a', 'x86', 'x86_64', 'mips', 'mips64'*/
+        }
+    }
+
+    File propFile =rootProject.file('signing.properties')
+    Properties props =new Properties()
+    props.load(new FileInputStream(propFile))
+    //props.getProperty("RELEASE_KEY_PASSWORD")
+    signingConfigs {
+        release {
+            keyAlias props['RELEASE_KEY_ALIAS']
+            keyPassword props['RELEASE_KEY_PASSWORD']
+            storeFile file(props['RELEASE_STORE_FILE'])
+            storePassword props['RELEASE_STORE_PASSWORD']
+        }
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "apk-${variant.versionCode}-${variant.versionName}-${releaseTime()}.apk"
+                }
+            }
+        }
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            debuggable true
+        }
+    }
+    productFlavors {
+        //开发环境
+        develop {
+            manifestPlaceholders = [app_name: "@string/app_name_dev"]
+        }
+        //生产环境
+        product {
+            manifestPlaceholders = [app_name: "@string/app_name_product"]
+        }
+
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+//获取编译时间
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation rootProject.ext.dependencies["junit"]
+    androidTestImplementation rootProject.ext.dependencies["runner"]
+    androidTestImplementation rootProject.ext.dependencies["espresso"]
+    //
+    implementation rootProject.ext.dependencies["constraintlayout"]
+    implementation rootProject.ext.dependencies["appcompat"]
+    implementation rootProject.ext.dependencies["viewpager"]
+    implementation rootProject.ext.dependencies["recyclerview"]
+    implementation rootProject.ext.dependencies["viewpager2"]
+    implementation rootProject.ext.dependencies["material"]
+
+    implementation rootProject.ext.dependencies["gson"]
+    //Glide
+    implementation rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
+    //butterknife
+    implementation rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    //EasyPermissions
+    implementation rootProject.ext.dependencies["easypermissions"]
+    //okHttp
+    implementation rootProject.ext.dependencies["okhttp3"]
+    //rxjava  rxAndroid
+    implementation rootProject.ext.dependencies["rxjava"]
+    implementation rootProject.ext.dependencies["rxandroid"]
+    //retrofit
+    implementation rootProject.ext.dependencies["retrofit2"]
+    implementation rootProject.ext.dependencies["retrofit2-converter"]
+    implementation rootProject.ext.dependencies["retrofit2-adapter"]
+    //agentweb
+    implementation rootProject.ext.dependencies["agentweb"]
+    //eventbus
+    implementation rootProject.ext.dependencies["eventbus"]
+    //smartrefresh
+    implementation rootProject.ext.dependencies["smartrefresh"]
+    //implementation rootProject.ext.dependencies["smartrefresh-head"]
+
+    implementation project(path: ':httpLibrary')
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--适配Android 5.0以下机型-->
+    <!-- 单击时的背景颜色 -->
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/rippleColor" />
+            <size android:width="20dp" android:height="20dp" />
+        </shape>
+    </item>
+    <!-- 未单击时的背景颜色 -->
+    <item android:drawable="@color/colorWhite" android:state_pressed="false" />
+
+</selector>
