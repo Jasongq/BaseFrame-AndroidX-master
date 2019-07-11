@@ -1,4 +1,4 @@
-package com.jiuye.baseframex.mvp;
+package com.jiuye.baseframex.base;
 
 import android.os.Bundle;
 

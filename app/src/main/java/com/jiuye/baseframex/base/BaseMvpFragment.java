@@ -13,8 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.jiuye.baseframex.mvp.IBasePresenter;
-import com.jiuye.baseframex.mvp.IBaseView;
 import com.jiuye.baseframex.util.LoadingUtil;
 import com.jiuye.baseframex.util.XLog;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;

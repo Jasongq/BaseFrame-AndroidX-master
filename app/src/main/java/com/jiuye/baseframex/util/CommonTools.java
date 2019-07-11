@@ -12,7 +12,7 @@ import android.Manifest;
  * </pre>
  */
 public class CommonTools {
-    public static final String BASE_URL = "http://www.wanandroid.com/";
+    public static final String BASE_URL = "https://www.wanandroid.com/";
     public static final String FILE_CONTENT_FILEPROVIDER = "com.jiuye.baseframex.fileprovider";
     public static final String IS_FIRST_INTO = "是否显示引导页/请求权限/第一次进入";
     /**

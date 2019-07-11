@@ -1,7 +1,7 @@
-package com.jiuye.baseframex.mvp.contract;
+package com.jiuye.baseframex.module.contract;
 
-import com.jiuye.baseframex.mvp.IBasePresenter;
-import com.jiuye.baseframex.mvp.IBaseView;
+import com.jiuye.baseframex.base.IBasePresenter;
+import com.jiuye.baseframex.base.IBaseView;
 
 /**
  * author : GuoQiang
@@ -11,11 +11,11 @@ import com.jiuye.baseframex.mvp.IBaseView;
  * version: 1.0
  */
 public interface LoginContract {
-    interface View extends IBaseView {
+    interface IView extends IBaseView {
         void loginSuccess(Object data);
         void loginFail(String errorMsg);
     }
-     interface IPresenter extends IBasePresenter<View> {
+     interface IPresenter extends IBasePresenter<IView> {
         void login(String userName, String password);
     }
 }

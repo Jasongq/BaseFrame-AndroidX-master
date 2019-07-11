@@ -4,9 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.jiuye.baseframex.mvp.IBasePresenter;
-import com.jiuye.baseframex.mvp.IBaseView;
-
 /**
  * author : GuoQiang
  * e-mail : 849199845@qq.com
