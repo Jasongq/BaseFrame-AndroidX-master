@@ -159,7 +159,7 @@ public class HttpLoggingInterceptor implements Interceptor {
                     log("\t" + headers.name(i) + ": " + headers.value(i));
                 }
                 log(" ");
-                if (logBody && HttpHeaders.hasBody(clone)) {
+                if (logBody && HttpHeaders.promisesBody(clone)) {
                     if (responseBody == null) return response;
 
                     if (isPlaintext(responseBody.contentType())) {

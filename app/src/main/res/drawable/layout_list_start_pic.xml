@@ -6,7 +6,6 @@
         android:right="0dp"
         android:top="0dp">
         <bitmap
-            android:gravity="center"
             android:src="@drawable/welcome" />
     </item>
 </layer-list>

@@ -21,14 +21,17 @@ android {
 }
 
 dependencies {
+    //implementation
+    //okHttp  (retrofit包中也存在okhttp,非最新版本,如需使用最新版可使用 exclude group排除retrofit中的okhttp)
+    api rootProject.ext.dependencies["okhttp3"]
     //rxjava  rxAndroid
-    implementation rootProject.ext.dependencies["rxjava"]
-    implementation rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
     //Retrofit
-    implementation rootProject.ext.dependencies["retrofit2"]
-    implementation rootProject.ext.dependencies["retrofit2-converter"]
-    implementation rootProject.ext.dependencies["retrofit2-adapter"]
-    implementation rootProject.ext.dependencies["retrofit2-scalars"]
+    api (rootProject.ext.dependencies["retrofit2"]) { exclude group:'com.squareup.okhttp3',module:'okhttp' }
+    api (rootProject.ext.dependencies["retrofit2-converter-gson"])
+    api (rootProject.ext.dependencies["retrofit2-adapter-rxjava2"])
+    api rootProject.ext.dependencies["retrofit2-converter-scalars"]
     //Log日志
-    //implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.logInterceptorVersion}"
+    //api "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.logInterceptorVersion}"
 }

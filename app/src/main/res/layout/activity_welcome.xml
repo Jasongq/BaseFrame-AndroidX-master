@@ -6,14 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.WelcomeActivity"
     android:background="@drawable/layout_list_start_pic">
-
     <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        tools:src="@drawable/welcome"
-        android:visibility="gone"/>
+        tools:src="@drawable/welcome"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/versionCodeTv"

@@ -13,8 +13,8 @@ android {
 
         multiDexEnabled true
         ndk { //选择要添加的对应cpu类型的.so库。
-            abiFilters 'armeabi-v7a'
-            /*'armeabi', , 'armeabi-v8a', 'x86', 'x86_64', 'mips', 'mips64'*/
+            abiFilters 'armeabi-v7a','x86'
+            /*'armeabi', , 'armeabi-v8a', 'x86_64', 'mips', 'mips64'*/
         }
     }
 
@@ -99,15 +99,6 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     //EasyPermissions
     implementation rootProject.ext.dependencies["easypermissions"]
-    //okHttp  (retrofit中已经存在)
-    //implementation rootProject.ext.dependencies["okhttp3"]
-    //rxjava  rxAndroid
-    implementation rootProject.ext.dependencies["rxjava"]
-    implementation rootProject.ext.dependencies["rxandroid"]
-    //retrofit
-    implementation rootProject.ext.dependencies["retrofit2"]
-    implementation rootProject.ext.dependencies["retrofit2-converter"]
-    implementation rootProject.ext.dependencies["retrofit2-adapter"]
     //agentweb
     implementation rootProject.ext.dependencies["agentweb"]
     //eventbus
