@@ -38,6 +38,7 @@ public class MyApplication extends Application {
         super.onCreate();
         instance=this;
         MultiDex.install(this);
+        NetStateChangeReceiver.registerReceiver(this);
         registerActivityLifecycleCallbacks(lifecycleCallbacks);
         CrashHandler.getInstance().init(this);
         initRxHttp();
